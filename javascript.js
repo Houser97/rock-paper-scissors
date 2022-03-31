@@ -48,7 +48,33 @@ function playerElection() {
 }
 
 function singleRound(computerPlay, playerPlay) {
-
+    if(computerPlay == 'Rock' && playerPlay == 'Paper') {
+        return 'You win! Paper beats Rock'
+    }
+    if(computerPlay == 'Rock' && playerPlay == 'Scissors') {
+        return 'You lose! Rock beats Scissors'
+    }
+    if(computerPlay == 'Rock' && playerPlay == 'Rock') {
+        return 'It is a draw!'
+    }
+    if(computerPlay == 'Paper' && playerPlay == 'Paper') {
+        return 'It is a draw!'
+    }
+    if(computerPlay == 'Paper' && playerPlay == 'Scissors') {
+        return 'You win! Scissors beat Paper'
+    }
+    if(computerPlay == 'Paper' && playerPlay == 'Rock') {
+        return 'You lose! Paper beats Rock'
+    }
+    if(computerPlay == 'Scissors' && playerPlay == 'Paper') {
+        return 'You lose! Scissors beat Paper'
+    }
+    if(computerPlay == 'Scissors' && playerPlay == 'Rock') {
+        return 'You win! Rock beats Scissors'
+    }
+    if(computerPlay == 'Scissors' && playerPlay == 'Scissors') {
+        return 'It is a draw!'
+    }
 }
 
-console.log(playerElection())
+console.log(singleRound(computerPlay(),playerElection()))
