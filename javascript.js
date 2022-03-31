@@ -22,20 +22,32 @@ function computerPlay() {
 }
 
 function playerElection() {
-    let playerElection = prompt('Choose your answer, please:');
 
-    // First letter to upper case.
-    let firstLetter = playerElection.slice(0,1);
-    firstLetter = firstLetter.toUpperCase();
+    let keepGoing = true;
 
-    // Rest of the letters to lower case.
-    let restLetters = playerElection.slice(1);
-    restLetters = restLetters.toLowerCase();
+    // Ciclo while que se detiene hasta que se ingresa una respuesta valida
+    while (keepGoing) {
+        let playerPlay = prompt('Choose your answer, please:');
 
-    return playerElection = firstLetter + restLetters;
+        // First letter to upper case.
+        let firstLetter = playerPlay.slice(0,1);
+        firstLetter = firstLetter.toUpperCase();
+
+        // Rest of the letters to lower case.
+        let restLetters = playerPlay.slice(1);
+        restLetters = restLetters.toLowerCase();
+
+        playerPlay = firstLetter + restLetters;
+
+        // Condicional para verificar que la entrada es valida
+        if(playerPlay === 'Rock' || playerPlay === 'Paper' || playerPlay === 'Scissors') {
+            keepGoing = false;
+            return playerPlay;
+        } 
+    }
 }
 
-function singleRound(computerPlay, playerElection) {
+function singleRound(computerPlay, playerPlay) {
 
 }
 
