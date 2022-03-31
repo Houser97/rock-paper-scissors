@@ -77,4 +77,36 @@ function singleRound(computerPlay, playerPlay) {
     }
 }
 
-console.log(singleRound(computerPlay(),playerElection()))
+
+function game() {
+    let machineVictories = 0;
+    let userVictories = 0;
+
+    for(let contador = 0; contador < 5; contador++){
+        let winnerRaw = singleRound(computerPlay(),playerElection());
+        // Se consigue la palabra lose! o win!
+        Winner = winnerRaw.slice(4,9);
+        // Se quita el espacio de exceso por si sale win!
+        Winner = Winner.trim();
+
+        if(Winner == 'lose!'){
+            machineVictories += 1;
+        } else if(Winner == 'win!'){
+            userVictories += 1;
+        }
+
+        console.log(winnerRaw)
+        console.log("Computer's points: " + machineVictories)
+        console.log("Your points: " + userVictories)
+    }
+
+    if(machineVictories > userVictories){
+        console.log('Computer wins!')
+    } else if(machineVictories < userVictories){
+        console.log("You win!")
+    } else {
+        console.log('It is a draw!')
+    }   
+}
+
+console.log(game())
