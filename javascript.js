@@ -19,7 +19,24 @@ function computerPlay() {
     } else {
         return 'Scissors';
     }
+}
+
+function playerElection() {
+    let playerElection = prompt('Choose your answer, please:');
+
+    // First letter to upper case.
+    let firstLetter = playerElection.slice(0,1);
+    firstLetter = firstLetter.toUpperCase();
+
+    // Rest of the letters to lower case.
+    let restLetters = playerElection.slice(1);
+    restLetters = restLetters.toLowerCase();
+
+    return playerElection = firstLetter + restLetters;
+}
+
+function singleRound(computerPlay, playerElection) {
 
 }
 
-console.log(computerPlay())
+console.log(playerElection())
