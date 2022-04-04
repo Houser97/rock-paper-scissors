@@ -87,5 +87,7 @@ function game() {
 
 // Se agregan eventListeners a los botones.
 
+const rps = document.querySelectorAll('.rps');
+rps.forEach(choiche => choiche.addEventListener('click',singleRound))
 
-console.log(game())
+
