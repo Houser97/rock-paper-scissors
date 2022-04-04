@@ -1,16 +1,18 @@
 body {
     background-color: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    align-content: center;
 }
 
 .buttons {
     display: flex;
     gap: 30px;
-    flex: 1;
+    margin-top: 50px;
     justify-content: space-evenly;
 }
 
@@ -18,4 +20,13 @@ button {
     height: 100px;
     width: 150px;
     border-radius: 5%;
+}
+
+.Text {
+    display: flex;
+    background-color: rgb(216, 190, 77);
+    height: 200px;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
 }
