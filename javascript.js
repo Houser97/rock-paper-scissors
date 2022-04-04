@@ -21,32 +21,6 @@ function computerPlay() {
     }
 }
 
-function playerElection() {
-
-    let keepGoing = true;
-
-    // Ciclo while que se detiene hasta que se ingresa una respuesta valida
-    while (keepGoing) {
-        let playerPlay = prompt('Choose your answer, please:');
-
-        // First letter to upper case.
-        let firstLetter = playerPlay.slice(0,1);
-        firstLetter = firstLetter.toUpperCase();
-
-        // Rest of the letters to lower case.
-        let restLetters = playerPlay.slice(1);
-        restLetters = restLetters.toLowerCase();
-
-        playerPlay = firstLetter + restLetters;
-
-        // Condicional para verificar que la entrada es valida
-        if(playerPlay === 'Rock' || playerPlay === 'Paper' || playerPlay === 'Scissors') {
-            keepGoing = false;
-            return playerPlay;
-        } 
-    }
-}
-
 function singleRound(computerPlay, playerPlay) {
     if(computerPlay == 'Rock' && playerPlay == 'Paper') {
         return 'You win! Paper beats Rock'
@@ -87,7 +61,9 @@ function game() {
 
 // Se agregan eventListeners a los botones.
 
-const rps = document.querySelectorAll('.rps');
-rps.forEach(choiche => choiche.addEventListener('click',singleRound))
+const rps = Array.from(document.querySelectorAll('.rps'));
+rps.forEach(choice => choice.addEventListener('click', function(e){
+    console.log(singleRound(computerPlay(),this.dataset.rps));
+}));
 
 
