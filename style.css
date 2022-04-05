@@ -114,8 +114,5 @@ button {
 
 .title {
     text-align: center;
-    border: 1px solid;
-    border-color: #ffc600;
-    box-shadow: 0 0 1rem #ffc600;
     margin-bottom: 50px;
 }

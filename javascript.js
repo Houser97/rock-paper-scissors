@@ -40,9 +40,36 @@ function dediceWinner(userVictory, machineVictory) {
     }
 }
 
+function RESET(e){
+    machineVictory = 0;
+    userVictory = 0;
+
+    // Se agrega efecto al boton seleccionado.
+    
+    e.target.classList.add('effectButton');
+    
+
+    const player1 = document.querySelector('.number.player');
+    const machine = document.querySelector('.number.machine');
+    player1.textContent = `${0}`;
+    machine.textContent = `${0}`;
+
+    const electionPlayer = document.querySelector('.election.player');
+    electionPlayer.textContent = "";
+
+    const electionMachine = document.querySelector('.election.machine');
+    electionMachine.textContent = "";
+
+    const winnerPlayer = document.querySelector('.counter.player');
+    const winnerMachine = document.querySelector('.counter.machine');
+
+    winnerPlayer.classList.remove('effect');
+    winnerMachine.classList.remove('effect');
+}
+
 function singleRound(playerPlay) {
     // Se agrega efecto al boton seleccionado.
-    const button = document.querySelector(`button[data-rps=${playerPlay.target.dataset.rps}`);
+    const button = document.querySelector(`button[data-rps=${playerPlay.target.dataset.rps}]`);
     button.classList.add('effectButton');
 
     computerPlay = computerElection();
@@ -124,6 +151,10 @@ function game(winner, computer, player, machineVictories = machineVictory, userV
 const rps = Array.from(document.querySelectorAll('.rps'));
 rps.forEach(choice => choice.addEventListener('click', singleRound));
 rps.forEach(buttons => buttons.addEventListener('transitionend',removeTransition));
+
+const reset = document.querySelector('.reset');
+reset.addEventListener('click', RESET);
+reset.addEventListener('transitionend', removeTransition);
 
 
 
