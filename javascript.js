@@ -24,7 +24,27 @@ function computerElection() {
     }
 }
 
+function removeTransition(e){
+    e.target.classList.remove('effectButton');
+}
+
+function dediceWinner(userVictory, machineVictory) {
+    if(userVictory >= 5){
+        const boxWinner = document.querySelector('.counter.player');
+        boxWinner.classList.add('effect');
+        return;
+    } else if(machineVictory >= 5){
+        const boxWinner = document.querySelector('.counter.machine');
+        boxWinner.classList.add('effect');
+        return;
+    }
+}
+
 function singleRound(playerPlay) {
+    // Se agrega efecto al boton seleccionado.
+    const button = document.querySelector(`button[data-rps=${playerPlay.target.dataset.rps}`);
+    button.classList.add('effectButton');
+
     computerPlay = computerElection();
     playerPlay = playerPlay.target.dataset.rps;
 
@@ -68,34 +88,35 @@ function singleRound(playerPlay) {
 
 
 function game(winner, machineVictories = machineVictory, userVictories = userVictory) {
-
-
+    
+    if(userVictory >= 5){
+        return;
+    } else if(machineVictory >= 5){
+        return;
+    }
+    
     if (winner == 'player') {
         userVictories += 1;
         const player = document.querySelector('.number.player');
         player.textContent = `${userVictories}`;
         userVictory +=1;
+        dediceWinner(userVictory,machineVictory);
     } else if (winner == 'machine') {
         machineVictories += 1;
         const machine = document.querySelector('.number.machine');
         machine.textContent = `${machineVictories}`;
         machineVictory += 1;
+        dediceWinner(userVictory,machineVictory);
     }
-
-    if(userVictory >= 5){
-        const boxWinner = document.querySelector('.counter.player');
-        boxWinner.classList.add('effect');
-        return;
-    } else if(machineVictory >= 5){
-        const boxWinner = document.querySelector('.counter.machine');
-        boxWinner.classList.add('effect');
-        return;
-    }
-
 }
 
 // Se agregan eventListeners a los botones.
 
 const rps = Array.from(document.querySelectorAll('.rps'));
 rps.forEach(choice => choice.addEventListener('click', singleRound));
+rps.forEach(buttons => buttons.addEventListener('transitionend',removeTransition));
+
+
+
+
 
