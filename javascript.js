@@ -69,16 +69,27 @@ function singleRound(playerPlay) {
 
 function game(winner, machineVictories = machineVictory, userVictories = userVictory) {
 
+
     if (winner == 'player') {
         userVictories += 1;
         const player = document.querySelector('.number.player');
         player.textContent = `${userVictories}`;
-        return userVictory +=1;
+        userVictory +=1;
     } else if (winner == 'machine') {
         machineVictories += 1;
         const machine = document.querySelector('.number.machine');
         machine.textContent = `${machineVictories}`;
-        return machineVictory += 1;
+        machineVictory += 1;
+    }
+
+    if(userVictory >= 5){
+        const boxWinner = document.querySelector('.counter.player');
+        boxWinner.classList.add('effect');
+        return;
+    } else if(machineVictory >= 5){
+        const boxWinner = document.querySelector('.counter.machine');
+        boxWinner.classList.add('effect');
+        return;
     }
 
 }

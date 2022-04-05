@@ -26,7 +26,15 @@ button {
     font-weight: bold;
     font-size: 20px;
     border: 2px solid white;
+    transition: all .07s ease; /* transicion BOTONES*/  
 }
+
+.effect {
+    transform: scale(1.1);
+    background-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
 
 .Text {
     display: flex;
@@ -44,6 +52,7 @@ button {
     height: 100%;
     width: 150px;
     align-items: center;
+    transition: all .07s ease; /* transicion WINNER*/  
 }
 
 .name {
