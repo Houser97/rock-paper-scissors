@@ -20,6 +20,12 @@ button {
     height: 100px;
     width: 150px;
     border-radius: 5%;
+    background-color: black;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid white;
 }
 
 .Text {
