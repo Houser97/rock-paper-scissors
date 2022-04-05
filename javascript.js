@@ -49,65 +49,74 @@ function singleRound(playerPlay) {
     playerPlay = playerPlay.target.dataset.rps;
 
     if (computerPlay == 'Rock' && playerPlay == 'Paper') {
-        game('player');
+        game('player', computerPlay = computerPlay, playerPlay = playerPlay);
         return 'You win! Paper beats Rock'
     }
     if (computerPlay == 'Rock' && playerPlay == 'Scissors') {
-        game('machine');
+        game('machine', computerPlay = computerPlay, playerPlay = playerPlay);
         return 'You lose! Rock beats Scissors'
     }
     if (computerPlay == 'Rock' && playerPlay == 'Rock') {
-        game('draw');
+        game('draw', computer = computerPlay, player = playerPlay);
         return 'It is a draw!'
     }
     if (computerPlay == 'Paper' && playerPlay == 'Paper') {
-        game('draw');
+        game('draw', computer = computerPlay, player = playerPlay);
         return 'It is a draw!'
     }
     if (computerPlay == 'Paper' && playerPlay == 'Scissors') {
-        game('player');
+        game('player', computer = computerPlay, player = playerPlay);
         return 'You win! Scissors beat Paper'
     }
     if (computerPlay == 'Paper' && playerPlay == 'Rock') {
-        game('machine');
+        game('machine', computer = computerPlay, player = playerPlay);
         return 'You lose! Paper beats Rock'
     }
     if (computerPlay == 'Scissors' && playerPlay == 'Paper') {
-        game('machine');
+        game('machine', computer = computerPlay, player = playerPlay);
         return 'You lose! Scissors beat Paper'
     }
     if (computerPlay == 'Scissors' && playerPlay == 'Rock') {
-        game('player');
+        game('player', computer = computerPlay, player = playerPlay);
         return 'You win! Rock beats Scissors'
     }
     if (computerPlay == 'Scissors' && playerPlay == 'Scissors') {
-        game('draw');
+        game('draw', computer= computerPlay, player = playerPlay);
         return 'It is a draw!'
     }
 }
 
 
-function game(winner, machineVictories = machineVictory, userVictories = userVictory) {
+function game(winner, computer, player, machineVictories = machineVictory, userVictories = userVictory) {
     
     if(userVictory >= 5){
         return;
     } else if(machineVictory >= 5){
         return;
     }
-    
+
+    const player1 = document.querySelector('.number.player');
+    const machine = document.querySelector('.number.machine');
+    player1.textContent = `${userVictories}`;
+    machine.textContent = `${machineVictories}`;
+
+    const electionPlayer = document.querySelector('.election.player');
+    electionPlayer.textContent = player;
+
+    const electionMachine = document.querySelector('.election.machine');
+    electionMachine.textContent = computer;
+
     if (winner == 'player') {
         userVictories += 1;
-        const player = document.querySelector('.number.player');
-        player.textContent = `${userVictories}`;
+        player1.textContent = `${userVictories}`;
         userVictory +=1;
         dediceWinner(userVictory,machineVictory);
     } else if (winner == 'machine') {
         machineVictories += 1;
-        const machine = document.querySelector('.number.machine');
         machine.textContent = `${machineVictories}`;
         machineVictory += 1;
         dediceWinner(userVictory,machineVictory);
-    }
+    } 
 }
 
 // Se agregan eventListeners a los botones.
