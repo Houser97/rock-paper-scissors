@@ -1,12 +1,10 @@
 body {
     background-color: black;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 100vh;
     margin: 0;
-    align-content: center;
 }
 
 .buttons {
@@ -84,4 +82,40 @@ button {
     font-size: 30px;
     font-weight: bold;
     height: 40px;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.left, .right{
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: dark;
+    width: 302.5px;
+    text-align: justify;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset {
+    width: 200px;
+}
+
+.title {
+    text-align: center;
+    border: 1px solid;
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+    margin-bottom: 50px;
 }
